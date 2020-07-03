@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  identityserver:
+    env_file:
+      - ./var1.env
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 192.168.8.131:60520:80
