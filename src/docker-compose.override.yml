@@ -7,4 +7,4 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - 192.168.8.131:60520:80
+      - 192.168.1.5:60520:80
