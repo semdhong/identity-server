@@ -65,8 +65,8 @@ namespace ei8.IdentityServer
                     // register your IdentityServer with Google at https://console.developers.google.com
                     // enable the Google+ API
                     // set the redirect URI to https://localhost:5001/signin-google
-                    options.ClientId = "copy client ID from Google here";
-                    options.ClientSecret = "copy client secret from Google here";
+                    options.ClientId = "699442698656-5hqhia590v6qncmn6on6tcjq38rpdie0.apps.googleusercontent.com";
+                    options.ClientSecret = "xCFMmuRGIrYInV8SiPRhpvFe";
                 });
         }
 
