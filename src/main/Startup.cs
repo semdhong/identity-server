@@ -3,6 +3,7 @@
 
 
 using IdentityServer4;
+using Microsoft.AspNetCore.Identity;
 using ei8.IdentityServer.Data;
 using ei8.IdentityServer.Models;
 using Microsoft.AspNetCore.Builder;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using static ei8.IdentityServer.Constants;
 using System;
+using IdentityServer4.Configuration;
 
 namespace ei8.IdentityServer
 {
@@ -34,18 +36,24 @@ namespace ei8.IdentityServer
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Environment.GetEnvironmentVariable(EnvironmentVariableKeys.ConnectionStringsDefault)));
-
+            
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
+            services.AddMvc();
             var builder = services.AddIdentityServer(options =>
             {
                 options.Events.RaiseErrorEvents = true;
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
-
+                options.UserInteraction.LoginUrl = "/Account/Login";
+                options.UserInteraction.LogoutUrl = "/Account/Logout";
+                options.Authentication = new AuthenticationOptions()
+                {
+                    CookieLifetime = TimeSpan.FromHours(10), // ID server cookie timeout set to 10 hours
+                    CookieSlidingExpiration = true
+                };
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
             })
@@ -62,15 +70,13 @@ namespace ei8.IdentityServer
                 {
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-                    // register your IdentityServer with Google at https://console.developers.google.com
-                    // enable the Google+ API
-                    // set the redirect URI to https://localhost:5001/signin-google
+                  
                     options.ClientId = "699442698656-5hqhia590v6qncmn6on6tcjq38rpdie0.apps.googleusercontent.com";
                     options.ClientSecret = "xCFMmuRGIrYInV8SiPRhpvFe";
                 });
         }
 
-        public void Configure(IApplicationBuilder app, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -79,13 +85,15 @@ namespace ei8.IdentityServer
             }
 
             app.UseStaticFiles();
-
+            app.UseAuthentication();
+           
             app.UseRouting();
+            
             app.UseIdentityServer();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapDefaultControllerRoute().RequireAuthorization();
             });
         }
     }

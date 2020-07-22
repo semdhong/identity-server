@@ -1,10 +1,11 @@
 version: '3.4'
 
 services:
-  identityserver:
+  ei8.identity:
     env_file:
       - ./var1.env
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "5002:80"
+     

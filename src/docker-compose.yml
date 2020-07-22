@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  identityserver:
-    image: ${DOCKER_REGISTRY-}identityserver
+  ei8.identity:
+    image: ${DOCKER_REGISTRY-}ei8identity
     build:
       context: .
-      dockerfile: ./main/Dockerfile
+      dockerfile: ei8.identity/Dockerfile

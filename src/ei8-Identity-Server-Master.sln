@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "main\IdentityServer.csproj", "{06E06102-B32C-437A-B663-6BF4FA0EE677}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ei8.identity", "ei8.identity\ei8.identity.csproj", "{EA8949E0-B133-420B-B57C-B01301223623}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2A69ED42-97EC-4C05-9688-D65256EDADDD}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{8B6DED56-1C31-483A-B480-6A2F15671017}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{06E06102-B32C-437A-B663-6BF4FA0EE677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{06E06102-B32C-437A-B663-6BF4FA0EE677}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{06E06102-B32C-437A-B663-6BF4FA0EE677}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{06E06102-B32C-437A-B663-6BF4FA0EE677}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A69ED42-97EC-4C05-9688-D65256EDADDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A69ED42-97EC-4C05-9688-D65256EDADDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A69ED42-97EC-4C05-9688-D65256EDADDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A69ED42-97EC-4C05-9688-D65256EDADDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA8949E0-B133-420B-B57C-B01301223623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA8949E0-B133-420B-B57C-B01301223623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA8949E0-B133-420B-B57C-B01301223623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA8949E0-B133-420B-B57C-B01301223623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B6DED56-1C31-483A-B480-6A2F15671017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B6DED56-1C31-483A-B480-6A2F15671017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B6DED56-1C31-483A-B480-6A2F15671017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B6DED56-1C31-483A-B480-6A2F15671017}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
